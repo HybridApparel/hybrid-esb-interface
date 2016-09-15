@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Orderid:</strong>
+  <%= @order.orderid %>
+</p>
+
+<p>
+  <strong>Orderxref:</strong>
+  <%= @order.orderxRef %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @order.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @order.lastname %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @order.created %>
+</p>
+
+<p>
+  <strong>Modified:</strong>
+  <%= @order.modified %>
+</p>
+
+<p>
+  <strong>Orderstatus:</strong>
+  <%= @order.orderstatus %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
