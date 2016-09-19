@@ -10,21 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915034813) do
+ActiveRecord::Schema.define(version: 20160919141429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "orderdetails", force: :cascade do |t|
+    t.string  "stylename"
+    t.integer "quantity"
+    t.string  "garmentsize"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "orderid"
-    t.string   "orderxRef"
     t.string   "firstname"
     t.string   "lastname"
     t.time     "created"
     t.time     "modified"
     t.integer  "orderstatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "orderdetail_id"
+    t.index ["orderdetail_id"], name: "index_orders_on_orderdetail_id", using: :btree
+    t.index ["orderid"], name: "index_orders_on_orderid", using: :btree
   end
 
+  add_foreign_key "orders", "orderdetails"
 end
