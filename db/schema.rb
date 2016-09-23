@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919141429) do
+ActiveRecord::Schema.define(version: 20160920222622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,5 +35,23 @@ ActiveRecord::Schema.define(version: 20160919141429) do
     t.index ["orderid"], name: "index_orders_on_orderid", using: :btree
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string   "styleident"
+    t.string   "product_name"
+    t.string   "product_description"
+    t.string   "licensexref"
+    t.string   "product_thumb_url"
+    t.string   "product_preview_url"
+    t.string   "product_print_image_url"
+    t.string   "trim_codes"
+    t.string   "necklabel_binid"
+    t.string   "hangtag_binid"
+    t.integer  "orderdetail_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["orderdetail_id"], name: "index_products_on_orderdetail_id", using: :btree
+  end
+
   add_foreign_key "orders", "orderdetails"
+  add_foreign_key "products", "orderdetails"
 end

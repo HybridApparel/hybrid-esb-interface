@@ -1,0 +1,2 @@
+json.extract! product, :id, :styleident, :product_name, :product_description, :licensexref, :product_thumb_url, :product_preview_url, :product_print_image_url, :trim_codes, :necklabel_binid, :hangtag_binid, :orderdetail_id, :created_at, :updated_at
+json.url product_url(product, format: :json)
