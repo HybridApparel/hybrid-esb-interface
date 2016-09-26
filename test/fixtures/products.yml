@@ -4,24 +4,20 @@ one:
   styleident: MyString
   product_name: MyString
   product_description: MyString
-  licensexref: MyString
   product_thumb_url: MyString
   product_preview_url: MyString
-  product_print_image_url: MyString
+  product_print_url: MyString
   trim_codes: MyString
-  necklabel_binid: MyString
-  hangtag_binid: MyString
-  orderdetail: one
+  necklabel_id: MyString
+  hangtag_id: MyString
 
 two:
   styleident: MyString
   product_name: MyString
   product_description: MyString
-  licensexref: MyString
   product_thumb_url: MyString
   product_preview_url: MyString
-  product_print_image_url: MyString
+  product_print_url: MyString
   trim_codes: MyString
-  necklabel_binid: MyString
-  hangtag_binid: MyString
-  orderdetail: two
+  necklabel_id: MyString
+  hangtag_id: MyString
