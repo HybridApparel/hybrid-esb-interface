@@ -10,9 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160926223909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "orderdetails", force: :cascade do |t|
+    t.integer  "quantity"
+    t.string   "garmentsize"
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["order_id"], name: "index_orderdetails_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_orderdetails_on_product_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "orderident"
+    t.string   "orderstatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "styleident"
+    t.string   "product_name"
+    t.string   "product_description"
+    t.string   "product_thumb_url"
+    t.string   "product_preview_url"
+    t.string   "product_print_url"
+    t.string   "trim_codes"
+    t.string   "necklabel_id"
+    t.string   "hangtag_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_foreign_key "orderdetails", "orders"
+  add_foreign_key "orderdetails", "products"
 end
