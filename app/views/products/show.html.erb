@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Styleident:</strong>
+  <%= @product.styleident %>
+</p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @product.product_name %>
+</p>
+
+<p>
+  <strong>Product description:</strong>
+  <%= @product.product_description %>
+</p>
+
+<p>
+  <strong>Product thumb url:</strong>
+  <%= @product.product_thumb_url %>
+</p>
+
+<p>
+  <strong>Product preview url:</strong>
+  <%= @product.product_preview_url %>
+</p>
+
+<p>
+  <strong>Product print url:</strong>
+  <%= @product.product_print_url %>
+</p>
+
+<p>
+  <strong>Trim codes:</strong>
+  <%= @product.trim_codes %>
+</p>
+
+<p>
+  <strong>Necklabel:</strong>
+  <%= @product.necklabel_id %>
+</p>
+
+<p>
+  <strong>Hangtag:</strong>
+  <%= @product.hangtag_id %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

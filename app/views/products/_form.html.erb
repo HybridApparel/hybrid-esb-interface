@@ -1,0 +1,62 @@
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :styleident %>
+    <%= f.text_field :styleident %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_name %>
+    <%= f.text_field :product_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_description %>
+    <%= f.text_field :product_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_thumb_url %>
+    <%= f.text_field :product_thumb_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_preview_url %>
+    <%= f.text_field :product_preview_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_print_url %>
+    <%= f.text_field :product_print_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trim_codes %>
+    <%= f.text_field :trim_codes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :necklabel_id %>
+    <%= f.text_field :necklabel_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hangtag_id %>
+    <%= f.text_field :hangtag_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
