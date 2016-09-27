@@ -15,6 +15,10 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @order.orderdetails.build
+    @order.orderdetails.each do |od|
+      od.product
+    end
   end
 
   # GET /orders/1/edit

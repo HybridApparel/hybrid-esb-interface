@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<div class="row">
   <div class="field">
     <%= f.label :orderident %>
     <%= f.text_field :orderident %>
@@ -21,7 +22,83 @@
     <%= f.text_field :orderstatus %>
   </div>
 
+  <%= f.fields_for :orderdetail do |od| %>
+
+      <%= od.fields_for :product do |p| %>
+
+
+<div class="row">
+  <div class="col-md-5">
+    <%= p.label :product_name %>
+    <%= p.text_field :product_name %>
+  </div>
+  <div class="col-md-4"<div class="field">
+    <%= p.label :styleident %>
+    <%= p.text_field :styleident %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <%= p.label :product_description %>
+    <%= p.text_field :product_description %>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-8">
+    <%= p.label :product_thumb_url %>
+    <%= p.text_field :product_thumb_url %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= p.label :product_preview_url %>
+    <%= p.text_field :product_preview_url %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= p.label :product_print_url %>
+    <%= p.text_field :product_print_url %>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+  <div class="col-md-4">
+    <%= p.label :trim_codes %>
+    <%= p.text_field :trim_codes %>
+  </div>
+
+  <div class="col-md-4">
+    <%= p.label :necklabel_id %>
+    <%= p.text_field :necklabel_id %>
+  </div>
+
+  <div class="col-md-4">
+    <%= p.label :hangtag_id %>
+    <%= p.text_field :hangtag_id %>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
+
 <% end %>
