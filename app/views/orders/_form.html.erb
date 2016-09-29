@@ -23,8 +23,17 @@
         <%= f.text_field :orderstatus %>
     </div>
 
-    <%= f.fields_for :orderdetail do |od| %>
-
+    <%= f.fields_for :orderdetails do |od| %>
+    <div class="row">
+        <div class="col-md-5">
+            <%= od.label :garmentsize %>
+            <%= od.text_field :garmentsize %>
+        </div>
+        <div class="col-md-4">
+            <%= od.label :quantity %>
+            <%= od.text_field :quantity %>
+        </div>
+      </div>
       <%= od.fields_for :product do |p| %>
 
       <div class="row">

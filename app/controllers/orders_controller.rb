@@ -5,24 +5,25 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+
+
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+
   end
 
   # GET /orders/new
   def new
     @order = Order.new
-    @order.orderdetails.build
-    @order.orderdetails.each do |od|
-      od.product
-    end
+
   end
 
   # GET /orders/1/edit
   def edit
+
   end
 
   # POST /orders
@@ -44,6 +45,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -73,6 +75,8 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:orderident, :orderstatus)
+      params.require(:order).permit(:orderident, :orderstatus,
+        orderdetails_attributes: [:id, :garmentsize, :quantity,
+        {product_attributes: [:id, :trim_codes]}])
     end
 end

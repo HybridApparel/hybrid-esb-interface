@@ -8,6 +8,10 @@
 <p>
   <strong>Orderstatus:</strong>
   <%= @order.orderstatus %>
+  <br  />
+  <% @order.orderdetails.each do |od| %>
+    <%= od.quantity %> - <%= od.garmentsize %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
