@@ -18,6 +18,8 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    orderdetails = @order.orderdetails.build
+    orderdetails.build_product
 
   end
 
@@ -29,10 +31,14 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+
     @order = Order.new(order_params)
+
+logger.debug "New article: #{@order.attributes.inspect}"
 
     respond_to do |format|
       if @order.save
+
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
